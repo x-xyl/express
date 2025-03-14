@@ -1,2 +1,12 @@
-link(rel="stylesheet", href="/css/style.css")
-p.title this is #{name}
+html
+  head
+    link(rel='stylesheet', href='/css/style.css')
+    block head
+  body
+    block body
+      h1.title Home page
+      p welcome
+      - var n = 0;
+      ul 
+      while n < 10
+      li= n++
