@@ -24,8 +24,15 @@ app.listen(3000, () => {
     console.log('Server is running on port 3000')
 })
 app.get('/getFile',(req,res)=>{
-    res.download(path.join(__dirname, '/Desktop.pem'))
+    res.download(path.join(__dirname, '/Desktop.pem'),'myFile.pem', (err) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send(err);
+        }
+        console.log('File is downloaded');
+    })
 })
+
 
 
 sayHello=()=>{
